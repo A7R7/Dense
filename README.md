@@ -84,7 +84,7 @@ d.淡绿色：光标移动相关    e.深绿色：删除字符相关
 
 6. **而回车被赋予了向下开新行的功能**。
 
-7. **a, s, x, c,youguan f, g, /,** 这些热键的功能相当于以capslock代替ctrl。ctrl按起来实在不方便。
+7. **a, s, x, c, v, f, g, /,** 这些热键的功能相当于以capslock代替ctrl。ctrl按起来实在不方便。
 
 # 二、以 CapsLock + W/A/S/D 为前缀
 
