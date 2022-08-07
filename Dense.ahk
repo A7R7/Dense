@@ -106,10 +106,8 @@ m::Send, {End}
 ,::Send, ^z
 .::Send, ^y
 ; miscellaneous-------------
-e::Send, #e                 ; file explorer
-r::Send, #r                 ; run
-a::Send, ^a                 ; choose all
-s::Send, ^s                 ; save
+; a::Send, ^a                 ; choose all
+; s::Send, ^s                 ; save
 f::Send, ^f                 ; find
 x::Send, ^x                 ; cut
 c::Send, ^{Insert}          ; copy
@@ -162,7 +160,7 @@ return
 
 
 ;Capslock + w + ... = window mode ----------------------
-
+w::return
 ; 1st row ------------------
 w & y::Send, #{Left}
 w & u::Send, #{Down}
@@ -189,15 +187,11 @@ return
 
 w & '::Send, ^w
 ; 3rd row ------------------
-w & n::         
+w & n::
 createVirtualDesktop()
 keywait, n
 return
-
-w & m::
-keywait, m
-return 
-
+w & m::Send, #{tab}
 w & ,::Send, ^#{left}
 w & .::Send, ^#{right}
 w & /::
@@ -218,23 +212,24 @@ w & b::Send, #b{enter} ; show mini icon tray
 
 
 ; CapsLock + a + ... = select mode -------------------------
-
+a::return
 ; 1st row -------------------
 a & y::Send, +^{left}
 a & u::Send, +{down 5}
 a & i::Send, +{up 5}
-a & o::Send, +^{right} 
+a & o::Send, +^{right}
 a & p::Send, {Home}+{End}    ;select whole line
 ; 2ed row -------------------
 a & h::Send, +{left}
 a & j::Send, +{down}
 a & k::Send, +{up}
 a & l::Send, +{right}
-a & `;::Send, {Home}+{End}{BackSpace}
+a & `;::Send, +{Up}{End}{BackSpace}
 ; 3rd row -------------------
 a & n::Send, +{Home}
 a & m::Send, +{End}
-
+; 4ed row -------------------
+a & Space::Send, ^a
 
 ;bracket surrounding--------
 a & [::
@@ -269,6 +264,8 @@ return
 
 
 ;Capslock + s + ... = symbol mode --------------------------
+s::return
+!s::Send, ^s
 ; 1st row ------------------
 s & y::Send, `\
 s & u::Send, `@
@@ -299,7 +296,7 @@ s & Space::Send, _
 
 
 ;Capslock + d + ... = digit mode -----------------------
-d::Return        
+d::Return 
 ; digits -------------------
 
 #InputLevel, 1
